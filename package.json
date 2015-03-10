@@ -1,0 +1,14 @@
+{
+  "name": "chaining-tool",
+  "version": "0.0.1",
+  "description": "Chain of responsibility",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha --expose-gc"
+  },
+  "author": "Maksym Pomazan",
+  "license": "MIT"
+}
