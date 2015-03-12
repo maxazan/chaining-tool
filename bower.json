@@ -1,0 +1,21 @@
+{
+  "name": "chaining-tool",
+  "main": "index.js",
+  "version": "0.0.2",
+  "homepage": "https://github.com/maxazan/chaining-tool",
+  "authors": [
+    "Maksym Pomazan"
+  ],
+  "description": "Chain of responsobility",
+  "keywords": [
+    "chain"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

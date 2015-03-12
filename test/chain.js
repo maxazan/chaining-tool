@@ -88,9 +88,9 @@ describe('Chain', function() {
     });
     it('memory usage test', function(done) {
         var handlers = [];
-        for (var i = 0; i < 2000; i++) {
+        for (var i = 0; i < 1500; i++) {
             handlers.push(function(context, next) {
-                console.log("");
+                var f="sdfsdfsfdsfsdd";
                 next();
             });
         }
@@ -102,8 +102,7 @@ describe('Chain', function() {
             global.gc();
             var after = process.memoryUsage().heapUsed;
             var diff_kb = (after - before) / 1024;
-            console.log(diff_kb);
-            assert.ok(diff_kb < 4000, "A lot memmory usage >100Mb for 1M instances");
+            assert.ok(diff_kb < 300, "A lot memmory usage >300Kb");
             done();
         };
         var oninterrupt = function(context) {};
