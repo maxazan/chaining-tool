@@ -1,6 +1,6 @@
 {
   "name": "chaining-tool",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Chain of responsibility",
   "main": "index.js",
   "directories": {

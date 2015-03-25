@@ -86,6 +86,68 @@ describe('Chain', function() {
         var chain = new Chain(handlers);
         chain.start(context, oncomplete, oninterrupt);
     });
+
+    it('add method test', function(done) {
+        var handlers = [];
+        handlers[0] = function(context, next) {
+            context.request.test = 1;
+            next();
+        };
+        handlers[1] = function(context, next) {
+            next();
+        };
+        another_handler = function(context, next) {
+            context.request.test = 2;
+            next();
+        };
+        var context = {
+            request: {},
+            response: {}
+        };
+        var oncomplete = function(context) {
+            assert.equal(context.request.test, 2);
+            done();
+        };
+        var oninterrupt = function(context) {
+            assert.ok(false);
+        };
+
+        var chain = new Chain(handlers);
+        chain.add(another_handler);
+        chain.start(context, oncomplete, oninterrupt);
+    });
+
+    it('add array method test', function(done) {
+        var handlers = [];
+        handlers[0] = function(context, next) {
+            context.request.test = 1;
+            next();
+        };
+        var another_handler = [];
+        another_handler[0] = function(context, next) {
+            next();
+        };
+        another_handler[1] = function(context, next) {
+            context.request.test = 2;
+            next();
+        };
+        var context = {
+            request: {},
+            response: {}
+        };
+        var oncomplete = function(context) {
+            assert.equal(context.request.test, 2);
+            done();
+        };
+        var oninterrupt = function(context) {
+            assert.ok(false);
+        };
+
+        var chain = new Chain(handlers);
+        chain.add(another_handler);
+        chain.start(context, oncomplete, oninterrupt);
+    });
+
     it('memory usage test', function(done) {
         var handlers = [];
         for (var i = 0; i < 1500; i++) {
